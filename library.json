@@ -1,0 +1,21 @@
+{
+  "name": "Enerinno_GAS_PULSE_METER",
+  "keywords": "ESP32, GAS_PULSE_METER",
+  "description": "Esentials for GAS_PULSE_METER",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/MauroDuque/Enerinno_GAS_PULSE_METER.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Mauricio Duque",
+      "email": "mauricio.duque.eje@gmail.com",
+      "maintainer": true
+    }
+  ],
+  "version": "0.0.1",
+  "frameworks": "arduino",
+  "platforms": "espressif"
+}
