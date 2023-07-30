@@ -6,12 +6,20 @@ int counter = 0;
 int buttonState = LOW;
 unsigned long debounceDelay = 50; // Adjust this value as needed
 
+unsigned long lastHour = 0;
+unsigned long pulsesThisHour = 0;
+int pulsesPerHour = 0;
+
 int get_pulse_gas() {
     return buttonState;
 }
 
 int get_counter_gas() {
     return counter;
+}
+
+int get_pulses_per_hour() {
+    return pulsesPerHour;
 }
 
 void setup_gas() {
@@ -33,6 +41,15 @@ void loop_gas() {
         buttonState = reading;
         if (buttonState == HIGH) {
             counter++;
+
+            // Calculate pulses per hour
+            unsigned long currentTime = millis();
+            if (currentTime - lastHour >= 3600000) { // 3600000ms = 1 hour
+                pulsesPerHour = pulsesThisHour;
+                pulsesThisHour = 0;
+                lastHour = currentTime;
+            }
+            pulsesThisHour++;
         }
     }
 
